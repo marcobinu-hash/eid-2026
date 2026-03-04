@@ -32,6 +32,8 @@
 
   * { box-sizing: border-box; margin: 0; padding: 0; }
 
+  html, body { overflow-x: hidden; width: 100%; }
+
   body {
     font-family: 'Inter', sans-serif;
     font-size: 14px;
@@ -40,39 +42,10 @@
     line-height: 1.6;
   }
 
-  /* ── TOP NAVBAR ── */
-  .cf-nav {
-    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-    height: var(--header-h);
-    background: var(--dark);
-    display: flex; align-items: center; gap: 16px;
-    padding: 0 20px;
-    border-bottom: 1px solid #0A1929;
-  }
-  .cf-nav .logo {
-    display: flex; align-items: center; gap: 8px;
-    color: white; font-weight: 700; font-size: 16px; letter-spacing: -0.3px;
-  }
-  .cf-nav .logo svg { opacity: 0.9; }
-  .cf-nav .nav-crumb {
-    color: #8993A4; font-size: 13px;
-    display: flex; align-items: center; gap: 6px;
-  }
-  .cf-nav .nav-crumb span { color: #C1C7D0; }
-  .cf-nav .nav-crumb .sep { color: #5E6C84; }
-  .cf-nav .nav-actions { margin-left: auto; display: flex; gap: 8px; }
-  .cf-nav .nav-btn {
-    padding: 6px 12px; border-radius: 4px; font-size: 12px; font-weight: 600;
-    cursor: pointer; border: none; font-family: inherit;
-  }
-  .cf-nav .nav-btn.primary { background: var(--brand); color: white; }
-  .cf-nav .nav-btn.secondary { background: transparent; color: #C1C7D0; border: 1px solid #3D4F6B; }
-
   /* ── LAYOUT ── */
   .cf-layout {
     display: flex;
-    margin-top: var(--header-h);
-    min-height: calc(100vh - var(--header-h));
+    width: 100%;
   }
 
   /* ── SIDEBAR ── */
@@ -83,8 +56,8 @@
     padding: 20px 0;
     flex-shrink: 0;
     position: sticky;
-    top: var(--header-h);
-    height: calc(100vh - var(--header-h));
+    top: 0;
+    height: 100vh;
     overflow-y: auto;
   }
   .sidebar-title {
@@ -113,8 +86,9 @@
   /* ── MAIN CONTENT ── */
   .cf-main {
     flex: 1;
-    padding: 32px 40px 60px;
-    max-width: 1100px;
+    padding: 28px 32px 60px;
+    min-width: 0;
+    overflow-x: hidden;
   }
 
   /* ── PAGE HEADER ── */
@@ -433,31 +407,11 @@
     .stat-grid { grid-template-columns: repeat(2,1fr); }
     .scenario-grid { grid-template-columns: 1fr; }
     .cf-sidebar { display: none; }
-    .cf-main { padding: 20px; }
+    .cf-main { padding: 16px; }
   }
 </style>
 </head>
 <body>
-
-<!-- NAV -->
-<nav class="cf-nav">
-  <div class="logo">
-    <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-      <rect width="24" height="24" rx="4" fill="#0052CC"/>
-      <path d="M5 14.5L9.5 9.5L12.5 13L16 8.5L19 13" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-    </svg>
-    Confluence
-  </div>
-  <div class="nav-crumb">
-    <span>TOM</span><span class="sep">›</span>
-    <span>Operations</span><span class="sep">›</span>
-    <span style="color:#4C9AFF">Eid Al-Fitr 2026</span>
-  </div>
-  <div class="nav-actions">
-    <button class="nav-btn secondary">Edit</button>
-    <button class="nav-btn primary">Share</button>
-  </div>
-</nav>
 
 <div class="cf-layout">
 
